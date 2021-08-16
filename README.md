@@ -1,4 +1,4 @@
-# examples-jacoco-badge-generator
+# Runnable Workflows Demonstrating the [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) GitHub Action
 
 The purpose of this repository includes:
 * providing a simple example of configuring the jacoco-maven-plugin,
@@ -59,5 +59,5 @@ file, however, that
 the [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) 
 GitHub Action uses, which is far simpler to parse.
 
-## Runnable Workflows Demonstrating the [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) GitHub Action
+## Summary of What the Workflows Do
 
