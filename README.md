@@ -6,6 +6,20 @@ The purpose of this repository includes:
 * providing runnable example workflows using the 
   [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) GitHub 
   Action.
+  
+## Why is this Repository a Template?
+
+I made this repository a template to make it easy for someone
+to use it to get started on a project. To use this to start a 
+new project, click the "Use this Template" button. Depending on
+which starter workflow you want to use, you might want to select 
+the option to include all branches. If you are not sure, then
+for now include all branches. You can always delete unneeded
+branches afterwards.
+
+You are also free to fork this repository if you want (e.g.,
+if you want to contribute to it with a pull request or for some 
+other reason).
 
 ## The Maven pom.xml
 
@@ -33,7 +47,7 @@ The latter will generate a jar, while the former will not. The tests
 and test coverage reports run in both cases. Since we are really focused on
 test coverage here, we don't really need the jar.
 
-## Where are the Test Coverage Reports
+## Where are the Test Coverage Reports?
 
 Assuming you ran the build locally (see above), the build would have created
 a `target` directory (Maven's default). The target directory is in the `.gitignore`
