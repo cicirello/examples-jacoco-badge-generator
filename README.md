@@ -59,3 +59,5 @@ file, however, that
 the [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) 
 GitHub Action uses, which is far simpler to parse.
 
+## Runnable Workflows Demonstrating the [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) GitHub Action
+
