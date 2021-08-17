@@ -121,4 +121,45 @@ as the previous example:
 ![branches coverage](.github/badges/branches.svg)
 ```
 
+### Dedicated Badges Branch: [.github/workflows/build-badges-branch.yml](.github/workflows/build-badges-branch.yml)
+
+In the previous example, using a PR to updated badges is less than ideal since it
+introduced an extra manual step. An alternative that eliminates that extra step,
+and which also works with protected branches without the need for extra access
+permissions, is to use a dedicated branch to store the badges. In this example,
+we do just that, and the that branch has been named `badges`. If you are using this
+approach in an existing project, you'll need to start by creating the `badges` branch.
+This repository already has it. Once you create the `badges` branch you can delete
+everything from it. In fact, it is preferable that you delete everything from the
+`badges` branch.
+
+This workflow assumes that the only purpose of the `badges` branch is to store the coverage
+badges, so we'll store them at the root of that branch. The `badges` branch can be protected
+if you want. Just don't add any required checks or reviews to the `badges` branch. The 
+default GITHUB_TOKEN can push to protected branches as long as there are no required checks 
+or required reviews.
+
+The important thing to notice in this workflow is the pair of checkout steps at the beginning.
+The first is the usual checkout step. The second checks out the `badges` branch, nesting it
+within the other in the path `badges`. In this way, locally within the remainder of the
+workflow run, we can access the content of the `badges` branch via the local `badges`
+directory.
+
+Here are the badges that result from this workflow:
+
+![coverage](../badges/jacoco.svg)
+![branches coverage](../badges/branches.svg)
+
+The above badges were inserted with the following markdown:
+
+```markdown
+![coverage](../badges/jacoco.svg)
+![branches coverage](../badges/branches.svg)
+```
+
+The reason for the weird `../badges` in the above links is so that
+we can use relative links, but GitHub automatically assumes the
+currently viewed branch of the README with relative links so we can
+go up one level to back out of the current branch and then go into the
+badges branch. 
 
