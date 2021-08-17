@@ -101,3 +101,24 @@ with write access to the repository can then use it in additional workflows
 to bypass those protections.  Therefore, some of the other sample workflows
 demonstrate alternatives that do not require additional access.
 
+### Pull Request to Update Badges: [.github/workflows/build-pr.yml](.github/workflows/build-pr.yml)
+
+This example is nearly identical to the basic case above. The only difference
+is that instead of committing and pushing the badges, it uses
+another action to generate a pull request to update the badges.
+
+Why? Well, this is the simplest approach to dealing with a protected branch that has
+required checks and/or required reviews. The drawback is that you must then
+approve and merge the pull request, so this variation introduces a manual step.
+However, it is more secure than introducing a PAT.
+
+If you use this approach, and use the default directory for the badges, and the default
+badge filenames, then you insert the badges into your README with the same markdown
+as the previous example:
+
+```markdown
+![coverage](.github/badges/jacoco.svg)
+![branches coverage](.github/badges/branches.svg)
+```
+
+
