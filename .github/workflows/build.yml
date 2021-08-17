@@ -29,6 +29,14 @@
 #    a zip of the JaCoCo report directory to the workflow run. You can download
 #    it manually from the page for the workflow run.  GitHub automatically
 #    deletes these after 90 days.
+#
+# A Few Notes:
+# If your main branch is protected and includes either required checks or
+# required reviews, then the push step will fail (this is true even if you 
+# use one of the available actions for pushing). To get around this, one 
+# option is to see GitHub's documentation on using a personal access token (PAT)
+# with the actions/checkout step. However, some of the other workflows in this
+# directory provide alternatives that do not require additional access.
 
 name: build
 
