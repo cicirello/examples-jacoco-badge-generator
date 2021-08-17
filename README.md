@@ -21,6 +21,21 @@ You are also free to fork this repository if you want (e.g.,
 if you want to contribute to it with a pull request or for some 
 other reason, such as just trying out the workflows).
 
+## Before You Modify Anything
+
+All of the sample workflows are configured to run on pushes and pull requests.
+So if you change anything, all of the sample workflows will run. A couple of them
+write the same files, so if you change any of the Java files in a way that would
+change the coverage percentages or if you delete the badges so you can fully watch
+the action work, then when the workflows attempt to push you 
+will probably end up with conflicts. If you don't change the Java files, no conflicts will
+occur because the existing badges won't change, so the workflows won't attempt to push
+anything.
+
+**Recommendation:** If you want to explore the effects of modifying anything, start by
+commenting out the push and pull request events that trigger all of the workflows except 
+whichever one is closest to your desired use-case).
+
 ## The Maven pom.xml
 
 The `pom.xml` in this repository builds a very simple program, a weird variation
