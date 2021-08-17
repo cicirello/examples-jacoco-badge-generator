@@ -1,0 +1,20 @@
+# GitHub's Linguist normally excludes YAML and
+# other "data" languages from a repository's 
+# languages graph. This certainly makes sense
+# in nearly all cases since such data is usually
+# in service to something else far more important.
+#
+# In this repository, I have chosen to direct GitHub's
+# Linguist to include the YAML workflow files in the
+# repository's languages graph because the very purpose
+# of this repository is the workflows to provide a variety
+# of runnable examples of using the jacoco-badge-generator
+# action.
+#
+# If you use this repository as a template to start another
+# project, then you will probably want to either delete
+# the next line, comment it out, or perhaps delete
+# this .gitattributes file altogether if you don't have
+# anything else you want to configure here.
+
+.github/workflows/*.yml linguist-detectable
