@@ -220,10 +220,19 @@ involves two requests per badge (one to Shields, and then a second initiated by 
 to your endpoint). But one advantage of using the endpoint approach is that it
 gains you access to all of Shields's built-in customizations. For example, if you wanted
 to use one of their alternate styles, you can select that as an additional URL parameter.
-Here is an example:
+
+Here is an example that directs Shields to use the Shields style "for-the-badge", rather
+than the default "flat" style:
 
 ![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/cicirello/examples-jacoco-badge-generator/main/.github/badges/jacoco.json&style=for-the-badge)
 ![branches coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/cicirello/examples-jacoco-badge-generator/main/.github/badges/branches.json&style=for-the-badge)
+
+The markdown that was used for the above badges is as follows:
+
+```markdown
+![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/cicirello/examples-jacoco-badge-generator/main/.github/badges/jacoco.json&style=for-the-badge)
+![branches coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/cicirello/examples-jacoco-badge-generator/main/.github/badges/branches.json&style=for-the-badge)
+```
 
 If your main branch has required checks or required reviews, then this workflow will
 fail during the push step. You can easily adapt either of the previous approaches to
@@ -231,4 +240,47 @@ dealing with that to the endpoint case (e.g., either having the workflow generat
 pull request, or pushing the endpoints to a different branch). In the latter case,
 you will need to adjust the markdown to pass the appropriate URL to Shields.
 
+### JSON Endpoints from a GitHub Pages Project Site
+
+We do not have a specific sample workflow for this case. We don't have GitHub Pages active
+on this repository. However, it is a straightforward combination of the previous
+two examples.
+
+First, you will take the approach from the example of the "Dedicated Badges Branch",
+but name the branch `gh-pages`. Second, go into settings for the repository and follow
+GitHub's directions for enabling GitHub Pages, specifically to serve from that branch.
+You might then include other content about your project in this branch such as API documentation,
+etc.
+
+Next, modify the "Dedicated Badges Branch" workflow to generate the JSON endpoints
+instead of directly generating the badges, as was done in the previous example
+"JSON Endpoints Instead of SVG", as well as to change the `badges-directory` to whatever
+path you used on the checkout of the dedicated `gh-pages` branch.
+
+Assuming you didn't enable a custom domain on your project site, the URL to the
+root of this project site will be of the form:
+
+```
+https://USERNAME.github.io/REPOSITORY
+```
+
+If you stored the JSON files in the root of the `gh-pages` branch, then the URLs
+to these files will be:
+
+```
+https://USERNAME.github.io/REPOSITORY/jacoco.json
+https://USERNAME.github.io/REPOSITORY/branches.json
+```
+
+Note that it is very important that you don't use the default badges directory of
+your `gh-pages` branch because directories and files that start with `.` are not
+accessible from GitHub Pages.
+
+By using GitHub Pages in combination with the JSON endpoints, we can slightly
+simplify the markdown needed to have Shields generate the badges, to the following:
+
+```markdown
+![coverage](https://img.shields.io/endpoint?url=https://USERNAME.github.io/REPOSITORY/jacoco.json)
+![branches coverage](https://img.shields.io/endpoint?url=https://USERNAME.github.io/REPOSITORY/branches.json)
+```
 
