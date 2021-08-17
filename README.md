@@ -10,7 +10,7 @@ The purpose of this repository includes:
 ## Why is this Repository a Template?
 
 I made this repository a template to make it easy for someone
-to use it to get started on a project. To use this to start a 
+to use it to get started on a new project. To use this to start a 
 new project, click the "Use this Template" button. Depending on
 which starter workflow you want to use, you might want to select 
 the option to include all branches. If you are not sure, then
@@ -19,7 +19,7 @@ branches afterwards.
 
 You are also free to fork this repository if you want (e.g.,
 if you want to contribute to it with a pull request or for some 
-other reason).
+other reason, such as just trying out the workflows).
 
 ## The Maven pom.xml
 
@@ -61,6 +61,29 @@ GitHub Action uses, which is far simpler to parse.
 
 ## Summary of What the Workflows Do
 
-If this section is still blank when you read this, then the workflows aren't
-here yet. Coming soon.
+The [.github/workflows](.github/workflows) directory contains several
+example workflows that use
+the [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) 
+GitHub Action. If you are new to GitHub workflows, they must be in that directory in order 
+to run. Each workflow also contains comments explaining all of the steps of each. Here is 
+a brief summary of each.
+
+### Basic case: [.github/workflows/build.yml](.github/workflows/build.yml)
+
+This is the basic use-case, which generates both the coverage
+and branches coverage badges storing them in the default directory,
+.github/badges. The workflow runs on pushes, pull requests, and can
+be run manually (the workflow_dispatch event). Here are the badges
+it produces:
+
+![coverage](.github/badges/jacoco.svg)
+![branches coverage](.github/badges/branches.svg)
+
+The above was inserted into this README with the following
+markdown:
+
+```markdown
+![coverage](.github/badges/jacoco.svg)
+![branches coverage](.github/badges/branches.svg)
+```
 
