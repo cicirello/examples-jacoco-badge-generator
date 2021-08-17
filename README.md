@@ -87,3 +87,17 @@ markdown:
 ![branches coverage](.github/badges/branches.svg)
 ```
 
+If your main branch is protected and includes either required checks or
+required reviews, then the push step will fail. To get around this, one 
+option is to see GitHub's documentation on using a personal access token (PAT)
+with the actions/checkout step. This is not at all an issue if your branch 
+is protected, but doesn't have required checks or reviews. In that case, the 
+default GITHUB_TOKEN is sufficient for the push, and a PAT is not needed.
+
+We personally do not like the use of a PAT for circumventing required
+checks or reviews. After all, if you have put those in place, you have done so
+for a reason. And once you have the PAT in place in the repository, anyone
+with write access to the repository can then use it in additional workflows
+to bypass those protections.  Therefore, some of the other sample workflows  
+demonstrate alternatives that do not require additional access.
+
