@@ -98,6 +98,6 @@ We personally do not like the use of a PAT for circumventing required
 checks or reviews. After all, if you have put those in place, you have done so
 for a reason. And once you have the PAT in place in the repository, anyone
 with write access to the repository can then use it in additional workflows
-to bypass those protections.  Therefore, some of the other sample workflows  
+to bypass those protections.  Therefore, some of the other sample workflows
 demonstrate alternatives that do not require additional access.
 
