@@ -22,7 +22,14 @@
 # 6) Commits and pushes the badges. Note that there are actions that you
 #    can use for this step instead if you wish. In this example, we just
 #    use a simple command line script. It sets the committer to the
-#    GitHub Actions bot.
+#    GitHub Actions bot. Also notice that this step is conditional and
+#    only runs if the workflow was triggered by a push, and not by a pull
+#    request. Why?  Well, for one, the workflow will be in a detached head
+#    state if triggered by a pull request.  Additionally, you may or may not
+#    choose to merge a pull request, and should only really update the
+#    coverage badges if you choose to accept the changes by merging the pull
+#    request, at which point this will be handled by the push that occurs with
+#    the merge. 
 # 7) The last step uploads the JaCoCo reports as a workflow artifact.
 #    In this way, if you want to inspect the details, you can do so
 #    via the actions tab of your repository. That step essentially attaches
@@ -77,7 +84,7 @@ jobs:
         echo "branches = ${{ steps.jacoco.outputs.branches }}"
 
     - name: Commit and push
-      if: ${{ github.event_name == 'push' }}
+      if: ${{ github.event_name != 'pull_request' }}
       run: |
         cd .github/badges
         if [[ `git status --porcelain *.svg` ]]; then
