@@ -127,7 +127,8 @@ In the previous example, using a PR to updated badges is less than ideal since i
 introduced an extra manual step. An alternative that eliminates that extra step,
 and which also works with protected branches without the need for extra access
 permissions, is to use a dedicated branch to store the badges. In this example,
-we do just that, and the that branch has been named `badges`. If you are using this
+we do just that, and that branch has been named `badges`. This workflow pushes the
+badges to the `badges` branch. If you are using this
 approach in an existing project, you'll need to start by creating the `badges` branch.
 This repository already has it. Once you create the `badges` branch you can delete
 everything from it. In fact, it is preferable that you delete everything from the
@@ -162,4 +163,17 @@ we can use relative links, but GitHub automatically assumes the
 currently viewed branch of the README with relative links so we can
 go up one level to back out of the current branch and then go into the
 badges branch. 
+
+Do we really need the two checkout steps? Can't we just use one of the
+other available GitHub Actions that have the ability to push to a different
+branch than the one currently checkout out?  Well, the answer depends upon
+whether you are using the optional feature of 
+the [cicirello/jacoco-badge-generator](https://github.com/cicirello/jacoco-badge-generator) 
+GitHub Action that enables you to use the action as a PR check, and to specify whether or 
+not to fail the workflow run if coverage has decreased. If you are not using that
+feature, then you can choose to either do it this way anyway, or to use another
+approach to pushing to the `badges` branch. If you are using that feature, however,
+then you will need to check out both branches in this way. This is because that
+feature relies on the prior badges to determine if coverage has decreased
+(e.g., it parses those badges for the prior coverage and branches coverage). 
 
