@@ -19,7 +19,11 @@ branches afterwards.
 
 You are also free to fork this repository if you want (e.g.,
 if you want to contribute to it with a pull request or for some 
-other reason, such as just trying out the workflows).
+other reason, such as just trying out the workflows). Keep in mind,
+however, that GitHub by default disables workflows in forks. So if you
+fork the repository for the purpose of experimenting with the action
+and the provided sample workflows, then you will need to enable GitHub 
+Actions via the actions tab of your fork.
 
 ## Before You Modify Anything
 
