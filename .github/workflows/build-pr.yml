@@ -77,7 +77,7 @@ jobs:
 
     - name: Generate Jacoco Badge
       id: jacoco
-      uses: cicirello/jacoco-badge-generator@fix-pycache
+      uses: cicirello/jacoco-badge-generator@v2
       with:
         generate-branches-badge: true
 
